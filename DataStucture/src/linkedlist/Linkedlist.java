@@ -4,7 +4,7 @@ public class Linkedlist<T> {
 	protected Node<T> head;
 	protected Node<T> tail;
 	protected int size;
-
+	
 public Linkedlist() {
 		// TODO Auto-generated constructor stub
 		head = null;
@@ -55,14 +55,11 @@ public T findValueOf(int index) {
 		return null;
 	}
 	
-public boolean insert(T value,int index){
+public void insert(T value,int index){
 	checkIndex(index);
 	checkValue(value, "not allow to insert null value");
 	Node<T> node=new Node<T>(value);
-	if (index > size) {
-		return false;
-	} 
-	else {
+	
 		Node<T> tmp = head;
 		if(index==0){
 			
@@ -80,7 +77,7 @@ public boolean insert(T value,int index){
 			if (counter == index-1) {
 				node.setNext(tmp.getNext());
 				tmp.setNext(node);
-				return true;	
+					break;
 			} 
 			else {
 				tmp = tmp.getNext();
@@ -89,12 +86,11 @@ public boolean insert(T value,int index){
 		}
 		
 		}
-		return false;
-	}
+		
 	
 }
 
-public boolean delete(int index){
+public void delete(int index){
 	checkIndex(index);
 		Node<T> tmp = head;
 		int counter = 0;
@@ -106,13 +102,13 @@ public boolean delete(int index){
 				tmp.setNext(tmp.getNext().getNext());
 				dTmp=null;
 				size--;
-				return true;
+	           break;			
 			} else {
 				tmp = tmp.getNext();
 				counter++;
 			}
 		}
-	return false;	
+		
 }
 public void deleteValue(T value){
 	checkValue(value, "there are no null value in linked list");
@@ -140,13 +136,7 @@ public void deleteValue(T value){
 	}
 	}
 }
-//Mergesort For Linked Lists
-/*public void sort(){
-	Node<T> tmp1=head;
-	Node<T> tmp2;
-	T value=head.getValue();
-	
-}*/
+
 private void checkValue(T value,String message){
 	if(value == null){
 		   throw new IllegalArgumentException(message);
@@ -154,7 +144,6 @@ private void checkValue(T value,String message){
 	
 }
 private void checkIndex(int index) {
-	//assert(index < 0 ||index >= size ):"index "+index+" out of rang ";
 	if(index < 0 ||index >= size){
 		throw new IndexOutOfBoundsException("index "+index+" out of rang");
 	}
