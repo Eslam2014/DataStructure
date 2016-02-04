@@ -2,7 +2,9 @@
 
 contain implementation of template linkedlist using java
 
-#linkedlist contain 6 functions 
+#linkedlist 
+
+contain 6 functions 
 
 - void append(T value)
 
