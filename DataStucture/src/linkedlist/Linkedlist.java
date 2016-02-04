@@ -1,5 +1,6 @@
 package linkedlist;
 
+
 public class Linkedlist<T> {
 	protected Node<T> head;
 	protected Node<T> tail;
